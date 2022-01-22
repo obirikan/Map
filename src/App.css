@@ -1,3 +1,6 @@
+*{
+    font-family: 'Roboto', sans-serif;
+}
 .card{
     width: 250px;
     height: 250px;
@@ -11,10 +14,41 @@ label{
     font-size: 14px;
     border-bottom: 0.5px solid tomato;
     margin: 3px 0;
+    font-weight: 900;
 }
 .desc{
     font-size: 14px;
 }
 .star{
     color: gold ;
+}
+form{
+    width:250px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+input{
+    border: none;
+    border-bottom: 1px solid gray;
+    outline: none;
+}
+input::placeholder,textarea::placeholder{
+    font-size: 12px;
+    color: rgb(206, 202, 202);
+
+}
+.btn{
+    border: none;
+    color: white;
+    background-color: tomato;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+}
+.button{
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
 }

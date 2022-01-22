@@ -1,0 +1,47 @@
+.regcont{
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+.logo{
+    color: slateblue;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    justify-content: center;
+}
+.inputs{
+    margin: 20px;
+}
+.r-btn{
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    background-color: slateblue;
+}
+.sucess{
+    color: green;
+    font-size: 12px;
+}
+.error{
+    color: red;
+    font-size: 12px;
+}
+.cancel{
+    position:absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}

@@ -52,3 +52,18 @@ input::placeholder,textarea::placeholder{
     border-radius: 5px;
     color: white;
 }
+.logout{
+    background-color: tomato;
+}
+.login{
+    background-color: teal;
+    margin-right: 10px;
+}
+.register{
+    background-color: slateblue;
+}
+.buttons,.logout{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

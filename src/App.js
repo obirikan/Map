@@ -5,17 +5,28 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import './App.css'
 import axios from 'axios'
 import {format} from 'timeago.js'
+import Register from "./components/Register";
+import Login  from "./components/Login"
 
 
 function App() {
-  const currentuser="kanobric"
-  const[pins,setpins]=useState([])
+  const storage=window.localStorage
+  const [currentuser,setuser]=useState(null)
+  const [pins,setpins]=useState([])
   const [placeId,setPlaceId]=useState(null)
   const [place,setNewPlace]=useState(null)
   //inputs
   const [title,setTitle]=useState(null)
   const [desc,setDesc]=useState(null)
   const [rating,setRating]=useState(0)
+  //show
+  const [showreg,setshowreg]=useState(0)
+  const [showlog,setshowlog]=useState(0)
+ //
+ const handlelog=()=>{
+   storage.removeItem('user')
+   setuser(null)
+ };
 
   const [viewport, setViewport] =useState({
     width:"100vw",
@@ -65,7 +76,7 @@ function App() {
      setpins([...pins,res.data])
      setNewPlace(null)
     }catch(err){
-       alert(err)
+       alert("Register And Login To Pin On Map")
     }
   }
   return (
@@ -76,6 +87,7 @@ function App() {
       onViewportChange={(viewport) => setViewport(viewport)}
       onDblClick={handleAddClick}
       transitionDuration="1000"
+
     > {pins.map((p)=>(
       <>
            <Marker
@@ -146,9 +158,12 @@ function App() {
        </div>
        </Popup>
       )}
-      <button classname="button logout">logout</button>
-      <button classname="button login">login</button>
-      <button classname="button register">register</button>
+      {currentuser?(<button className="button logout" onClick={handlelog}>logout</button>):(<div className="buttons">
+      <button className="button login" onClick={()=>{setshowlog(true)}}>login</button>
+      <button className="button register" onClick={()=>{setshowreg(true)}}>register</button>
+      </div>)}
+      {showreg && (<Register reg={setshowreg} />)}
+      {showlog && (<Login log={setshowlog} store={storage} setuser={setuser} />)}
     </ReactMapGL>
     </div>
   );

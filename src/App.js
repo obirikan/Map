@@ -11,7 +11,7 @@ import Login  from "./components/Login"
 
 function App() {
   const storage=window.localStorage
-  const [currentuser,setuser]=useState(null)
+  const [currentuser,setuser]=useState(storage.getItem("user"))
   const [pins,setpins]=useState([])
   const [placeId,setPlaceId]=useState(null)
   const [place,setNewPlace]=useState(null)
